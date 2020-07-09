@@ -1,0 +1,226 @@
+/*
+Background      #212320
+Foreground      #332
+Comment         #75715E
+Red             #612320
+Orange          #FD971F
+Light Orange    #F84
+Disabled/BlueBG #123
+Yellow          #E6DB74
+Green           #282
+GreenBackground #786
+Blue            #6DE
+Purple          #A8F
+*/
+body {
+    background-color: #212320;
+    color: lightgrey;
+    font-family: Verdana, sans-serif;
+}
+
+button {
+    background-color: #272822;
+    color: lightgrey;
+    border-radius: 1em;
+    margin-bottom: 1px;
+}
+
+button:focus {
+    outline-color: #F84;
+    outline-style: dotted;
+}
+
+input,
+select,
+textarea {
+    background-color: #332;
+    color: lightgrey;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline-color: darkorange;
+    outline-style: inset;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#toolbar {
+    width: 5%;
+    min-width: 12em;
+    max-width: 15em;
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    width: calc(100% - min(15em, max(10%, 7.5em)));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#content #schema {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#content #propertyViewer {
+
+}
+
+#content #propertyViewer table {
+    width: 100%;
+    border: 0.01em solid black;
+}
+
+#content #propertyViewer table thead td {
+    font-weight: bold;
+}
+
+#content #propertyViewer table tbody td {
+    border: 0.01em solid black;
+}
+
+#content #propertyViewer table tbody tr {
+    background-color: #332;
+}
+
+#content #propertyViewer table tbody td input:not([type="radio"]):not([type="checkbox"]),
+#content #propertyViewer table tbody td select,
+#content #propertyViewer table tbody td textarea {
+    width: 100%;
+}
+
+#content #propertyViewer table tbody td input:read-only {
+    background-color: #123;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    max-width: 15em;
+
+    margin-bottom: 0.2em;
+
+    border: 0.01em solid black;
+    border-radius: 0 0 1em 1em;
+}
+
+.box.active {
+    border: 2px solid #F84;
+    border-top-width: 0;
+}
+
+.box .propertyDefinitions {
+    display: none;
+}
+
+.box .title-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box .title-bar {
+    background-color: #786;
+}
+
+.box .title-bar .title {
+    padding-left: 1em;
+}
+
+.box .title-bar .close {
+    border: 0.01em solid black;
+    background-color: black;
+
+    padding: 0 0.4em;
+    font-size: 1em;
+    font-family: sans-serif;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.box .title-bar .close .btn-close:visited,
+.box .title-bar .close .btn-close:hover,
+.box .title-bar .close .btn-close:active,
+.box .title-bar .close .btn-close:focus,
+.box .title-bar .close .btn-close:focus-within {
+    font-size: 1em;
+    font-family: sans-serif;
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.box .body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 0.5em 0;
+}
+
+.box .body .inputs,
+.box .body .outputs {
+    width: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+
+.box .body .inputs .input,
+.box .body .outputs .output {
+    width: 1em;
+    height: 1em;
+    user-select: none;
+
+    margin: 3px auto;
+    list-style: none;
+    background-color: #786;
+    border-radius: 50%;
+    cursor: default;
+
+    color: lightgrey;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.box .body .inputs .input:before ,
+.box .body .outputs .output:before {
+    content: ">";
+}
+
+.box .body .inputs .input:hover,
+.box .body .outputs .output:hover {
+    outline-width: 1;
+}
+
+.box .footer {
+    overflow: hidden;
+    padding: 0 1em;
+}
+
+.box .footer .error {
+    color: #612320;
+
+    padding: 0 1em;
+}
+
+.drag-io {
+    position: absolute;
+    background-color: transparent;
+}
